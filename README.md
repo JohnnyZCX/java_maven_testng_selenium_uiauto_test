@@ -7,3 +7,6 @@ Maven项目搭建，分为：
 业务逻辑层：用来封装某些会重复的操作步骤，以便在test用例的test方法中直接调用已封装的业务逻辑的方法，大大减少代码量
 监听器层：定义失败截图保存的监听器，失败重跑的监听器，并将监听器配置在testng.xml
 工具层：定义ExcelUtil类用来获取excel文件中的数据并传给测试用例进行参数化
+将项目克隆到本地电脑后，需要在本地安装Maven配置环境变量，然后给克隆到本地的项目配置本地maven，在cmd窗口切换到克隆项目路径下，一次执行：
+mvn clean test  运行自动化测试脚本
+mvn io.qameta.allure:allure-maven:serve   将测试结果数据通过allure服务生成报告
