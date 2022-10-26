@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
+<suite name="All Test Suite" parallel="tests" thread-count="2">
+    <!--使监听器生效-->
+    <listeners>
+        <listener class-name="com.lrc.listener.TestResultListener"></listener>
+        <listener class-name="com.lrc.listener.GlobalAnnotationTransformer"></listener>
+    </listeners>
+    <test name="测试">
+        <classes>
+            <class name="com.lrc.testcases.TestBaidu"/>
+            <class name="com.lrc.testcases.TestBaidu2"/>
+        </classes>
+    </test>
+</suite>
