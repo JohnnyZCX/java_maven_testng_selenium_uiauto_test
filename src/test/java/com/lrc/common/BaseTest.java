@@ -1,5 +1,6 @@
 package com.lrc.common;
 
+import io.github.bonigarcia.wdm.WebDriverManager;
 import org.apache.log4j.Logger;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.firefox.FirefoxDriver;
@@ -29,11 +30,13 @@ public class BaseTest {
     public void openBrowser(String browserName) {
         RemoteWebDriver webDriver = null;
         if ("chrome".equalsIgnoreCase(browserName)) {
-            System.setProperty("webdriver.chrome.driver", "src\\test\\resources\\chromedriver.exe");
+            //System.setProperty("webdriver.chrome.driver", "src\\test\\resources\\chromedriver.exe");
+            WebDriverManager.chromedriver().setup();   //使用webdriver管理器管理驱动
             webDriver = new ChromeDriver();
             logger.info("====================打开了chrome浏览器=====================");
         } else if ("firefox".equalsIgnoreCase(browserName)) {
-            System.setProperty("webdriver.gecko.driver", "src\\test\\resources\\geckodriver.exe");
+            //System.setProperty("webdriver.gecko.driver", "src\\test\\resources\\geckodriver.exe");
+            WebDriverManager.firefoxdriver().setup();
             webDriver = new FirefoxDriver();
             logger.info("====================打开了Firefox浏览器=====================");
         } else if ("ie".equalsIgnoreCase(browserName)) {
@@ -42,7 +45,8 @@ public class BaseTest {
             capabilities.setCapability(InternetExplorerDriver.INTRODUCE_FLAKINESS_BY_IGNORING_SECURITY_DOMAINS, true);
             //忽略浏览器缩放设置
             capabilities.setCapability(InternetExplorerDriver.IGNORE_ZOOM_SETTING, true);
-            System.setProperty("webdriver.ie.driver", "src\\test\\resources\\IEDriverServer.exe");
+            //System.setProperty("webdriver.ie.driver", "src\\test\\resources\\IEDriverServer.exe");
+            WebDriverManager.iedriver().setup();
             webDriver = new InternetExplorerDriver(capabilities);
             logger.info("====================打开了IE浏览器=====================");
         }
