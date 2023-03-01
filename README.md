@@ -9,7 +9,8 @@ Maven项目搭建，分为：
 工具层：定义ExcelUtil类用来获取excel文件中的数据并传给测试用例进行参数化
 将项目克隆到本地电脑后，需要在本地安装Maven配置环境变量，然后给克隆到本地的项目配置本地maven，在cmd窗口切换到克隆项目路径下，一次执行：
 mvn clean test  运行自动化测试脚本
-mvn io.qameta.allure:allure-maven:serve   将测试结果数据通过allure服务生成报告，此报告只是本地查看
+mvn io.qameta.allure:allure-maven:serve   将测试结果数据通过allure服务生成报告，此报告只是本地查看。
+
 jenkins集成自动化项目并生成allure报告供其他同事在线查看：
 分别添加两个构建：
 构建一：进入项目目录下并运行测试用例
